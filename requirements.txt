@@ -1,11 +1,6 @@
-numpy
-librosa
 torch
-torchvision
-torchaudio
-matplotlib
-pandas
-scikit-learn
-jupyterlab
+librosa
 pydub
 jiwer
+PyYAML
+pytest

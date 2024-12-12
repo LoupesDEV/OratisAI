@@ -1,41 +1,30 @@
-import os
-import subprocess
+import argparse
+import logging
+import time
+from scripts import preprocess, extract_features, train_model, decode_audio, evaluate
+import yaml
 
-def ensure_directories():
-    required_dirs = [
-        "data/raw", "data/processed", "data/transcripts",
-        "features", "models", "results/decoded_texts"
-    ]
-    for directory in required_dirs:
-        os.makedirs(directory, exist_ok=True)
-        print(f"Vérification/Création du dossier : {directory}")
+with open("config/config.yaml", "r") as f:
+    config = yaml.safe_load(f)
 
-def preprocess_audio():
-    print("\n[Étape 1/5] Prétraitement des fichiers audio...")
-    subprocess.run(["python", "scripts/preprocess.py"])
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
-def extract_features():
-    print("\n[Étape 2/5] Extraction des caractéristiques (MFCCs)...")
-    subprocess.run(["python", "scripts/extract_features.py"])
 
-def train_model():
-    print("\n[Étape 3/5] Entraînement du modèle...")
-    subprocess.run(["python", "scripts/train_model.py"])
-
-def decode_audio():
-    print("\n[Étape 4/5] Décodage des fichiers audio...")
-    subprocess.run(["python", "scripts/decode_audio.py"])
-
-def evaluate_model():
-    print("\n[Étape 5/5] Évaluation du modèle...")
-    subprocess.run(["python", "scripts/evaluate.py"])
+def main(segment_audio):
+    while True:
+        logging.info("=== Lancement du pipeline ASR ===")
+        preprocess(config, segment_audio)
+        extract_features(config)
+        train_model(config)
+        decode_audio(config)
+        evaluate(config)
+        logging.info("=== Cycle terminé. Redémarrage ===")
 
 if __name__ == "__main__":
-    print("=== Lancement du pipeline ASR ===")
-    ensure_directories()
-    preprocess_audio()
-    extract_features()
-    train_model()
-    decode_audio()
-    evaluate_model()
-    print("\n=== Pipeline terminé ===")
+    parser = argparse.ArgumentParser(description="Lancement du pipeline ASR ORATIS")
+    parser.add_argument("--segment", choices=["yes", "no"], default="yes", help="Segmenter les fichiers audio en morceaux de 30 secondes")
+    
+    args = parser.parse_args()
+    segment_audio = args.segment == "yes"
+
+    main(segment_audio)

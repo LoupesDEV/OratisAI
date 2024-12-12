@@ -1,0 +1,19 @@
+paths:
+  raw_audio: "data/raw"
+  processed_audio: "data/processed"
+  transcripts: "data/transcripts"
+  features: "features"
+  models: "models/trained_model.pth"
+  decoded_texts: "results/decoded_texts"
+
+training:
+  batch_size: 32           # Augmenter légèrement pour accélérer l'apprentissage sans surcharge mémoire
+  epochs: 20               # Réduire les époques pour un entraînement rapide
+  learning_rate: 0.001     # Réduire pour stabiliser les mises à jour et éviter les oscillations
+  input_dim: 13            # Inchangé, correspondant aux MFCCs ou caractéristiques extraites
+  hidden_dim: 128           # Réduire la taille pour diminuer la complexité computationnelle
+  output_dim: 29           # Inchangé, correspondant aux classes de sortie
+
+preprocessing:
+  sample_rate: 16000       # Inchangé, adapté pour les données audio courantes
+  segment_duration: 15     # Réduire pour traiter des segments plus petits et accélérer la boucle
