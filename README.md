@@ -49,8 +49,8 @@ ORATIS/
 
 1. **Cloner le projet :**
    ```bash
-   git clone <URL_du_projet>
-   cd ORATIS
+   git clone https://github.com/KucoDEV/Oratis.git
+   cd Oratis
    ```
 
 2. **Installer les dépendances :**
