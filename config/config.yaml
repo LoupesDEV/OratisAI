@@ -1,4 +1,4 @@
-paths:
+paths: 
   raw_audio: "data/raw"
   processed_audio: "data/processed"
   transcripts: "data/transcripts"
