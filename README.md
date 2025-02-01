@@ -13,34 +13,34 @@ Le projet implémente les étapes clés nécessaires pour convertir des fichiers
 ## Structure du projet
 
 ```txt
-ORATIS/
+OratisAI/
 ├── config/
-│   └── config.yaml        # Configuration centralisée
+│   └── config.yaml          # Configuration centralisée
 ├── data/
-│   ├── raw/               # Fichiers audio bruts
-│   ├── processed/         # Fichiers audio prétraités
-│   ├── transcripts/       # Transcriptions de référence
-├── features/              # Caractéristiques audio extraites (MFCCs)
+│   ├── raw/                 # Fichiers audio bruts
+│   ├── processed/           # Fichiers audio prétraités
+│   ├── transcripts/         # Transcriptions de référence
+├── features/                # Caractéristiques audio extraites (MFCCs)
 ├── models/
-│   └── trained_model.pth  # Modèle entraîné
+│   └── trained_model.pth    # Modèle entraîné
 ├── results/
-│   └── decoded_texts/     # Transcriptions générées
+│   └── decoded_texts/       # Transcriptions générées
 ├── scripts/
-│   ├── __init__.py        # Rendre les scripts importables comme un module
-│   ├── preprocess.py      # Prétraitement des fichiers audio
-│   ├── extract_features.py # Extraction des caractéristiques (MFCCs)
-│   ├── train_model.py     # Entraînement du modèle
-│   ├── decode_audio.py    # Décodage des fichiers audio
-│   └── evaluate.py        # Évaluation des performances du modèle
+│   ├── __init__.py          # Rendre les scripts importables comme un module
+│   ├── preprocess.py        # Prétraitement des fichiers audio
+│   ├── extract_features.py  # Extraction des caractéristiques (MFCCs)
+│   ├── train_model.py       # Entraînement du modèle
+│   ├── decode_audio.py      # Décodage des fichiers audio
+│   └── evaluate.py          # Évaluation des performances du modèle
 ├── tests/
-│   ├── __init__.py        # Tests unitaires
-│   ├── test_preprocess.py # Tests pour le prétraitement
-│   └── test_decode.py     # Tests pour le décodage
-├── main.py                # Script principal pour exécuter le pipeline
-├── README.md              # Documentation
-├── requirements.txt       # Dépendances du projet
-├── LICENSE                # License du projet
-└── .gitignore             # Fichiers à ignorer dans Git
+│   ├── __init__.py          # Tests unitaires
+│   ├── test_preprocess.py   # Tests pour le prétraitement
+│   └── test_decode.py       # Tests pour le décodage
+├── main.py                  # Script principal pour exécuter le pipeline
+├── README.md                # Documentation
+├── requirements.txt         # Dépendances du projet
+├── LICENSE                  # License du projet
+└── .gitignore               # Fichiers à ignorer dans Git
 ```
 
 ---
