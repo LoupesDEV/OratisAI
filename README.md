@@ -130,5 +130,4 @@ python scripts/evaluate.py
 ---
 
 ## Licence
-Ce projet est sous licence **MIT**. Consultez le fichier `LICENSE` pour plus de détails.
-
+Ce projet est sous licence MIT. Vous êtes libre de le modifier et de le redistribuer.
