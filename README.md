@@ -129,11 +129,6 @@ python scripts/evaluate.py
 
 ---
 
-## Auteurs
-Ce projet a été réalisé par **Mathéo PICHOT-MOÏSE** alias **Kuco**.
-
----
-
 ## Licence
 Ce projet est sous licence **MIT**. Consultez le fichier `LICENSE` pour plus de détails.
 
